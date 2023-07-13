@@ -1,0 +1,116 @@
+#　モダンフロントエンドの原則
+
+## フロントエンドの技術の複雑化
+- 開発ツール
+    - バージョン管理
+        - Git
+        - GitHub
+    - コンパイラ
+        - Babel
+        - TypeScript
+    - ビルド
+        - npm script
+        - webpack
+        - Vercel
+    - エディタ
+        - VsCode
+        - Prettier
+        - ESLint
+- ランタイム
+    - サーバランタイム
+        - Node.js
+        - docker
+        - MySQL
+    - ブラウザ
+        - Chrome
+        - Firefox
+        - Safari
+        - Edge
+    - UIフレームワーク
+        - React
+        - Vue
+        - Angular
+    - CI/CD
+        - GitHub Actions
+        - CircleCI
+        - Jenkins
+- コンポーネント設計
+    - UIデザイン
+        - CSS in JS
+        - CSS Modules
+        - Tailwind CSS
+    - コンポーネント実装
+        - React/ React Hooks
+        - Atomic Design
+        - Storybook
+    - ステート管理
+        - React props/state
+        - Flux/Redux
+        - Context
+    - テスト
+        - Mocha
+        - Jest
+        - Selenium
+- アプリケーション設計
+    - API設計
+        - REST API
+        - GraphQL
+    - ルーティング設計
+        - React Router
+        - Next.js
+    - レンダリング設計
+        - SPA/SRR/SSG
+        - Next.js
+    - デプロイ
+        - Vercel
+        - Amazon S3/ Lambda
+        - CDN
+    - PWA
+    - SEO
+        - Google Analytics
+        - Search Console
+
+## コンポーネント指向
+- コンポーネント指向とは
+    - コンポーネント指向とは、アプリケーションを構成する部品を再利用可能なコンポーネントとして設計すること
+    - コンポーネント指向のメリット
+        - 再利用性
+        - グローバルな変数の汚染を防ぐ
+        - メンテナンス性（可読性）
+        - テスト容易性
+        - チーム開発の効率化
+- 良いコンポーネントのあるべき姿：できる限り抽象的であること。ビジネスロジックなどとは分離されている。
+- コンポーネントの状態管理
+    - props
+        - コンポーネントの外側から受け取ることのできる値。コンポーネントの中で何かトリガーされたときに呼び出される関数を渡すことも可能。
+        - 単一方向のデータフローを持つことが特徴
+    - state
+        - コンポーネント内部で保持するデータ。propsとは異なり、コンポーネントの外側から値を受け取れず。外部からアクセスできない。
+        - 影響を与えるのは、必ずそのコンポーネント自身、もしくは配下コンポーネントのみ。
+        - useState(): stateを定義、更新するためのReact Hooks。
+    - Context
+        - コンポーネントツリー全体で共有されるデータを管理するための仕組み。
+        - 基本的に一方向だが、末端の子要素での操作が他の要素に影響を与える実装をしたい場合などに、バケツリレーだと問題、通り道に余計なコードが必要になるので、Contextを使う。
+        - useContext(): Contextを定義、更新するためのReact Hooks。
+
+## Atmoic Design
+- Atmoic Designとは
+    - Atmoic Designとは、UIを構成する部品を、原子（Atoms）・分子（Molecules）・有機体（Organisms）・テンプレート（Templates）・ページ（Pages）の5つの階層に分けて設計すること。
+    - Atoms：ボタンやテキストフィールドなどの最小単位のUIパーツ。それ以上機能的に分解できない。
+    - Molecules：Atomsを組み合わせたUIパーツ。検索フォームなど
+    - Organisms：AtomsやMoleculesを組み合わせたUIパーツ。ヘッダーやフッターなど
+    - Templates：AtomsやMolecules、Organismsを組み合わせたUIパーツ。１つの画面として成り立つモノ。
+    - Pages：AtomsやMolecules、Organisms、Templatesを組み合わせたUIパーツ。アプリケーションとして動作するデータが注ぎこまれたもの
+    - Atmoic Designのメリット
+        - 再利用性
+        - メンテナンス性（可読性）
+        - テスト容易性
+        - チーム開発の効率化
+
+## Flux
+- Fluxとは
+    - Fluxとは、コンポーネントの状態を管理するためのアーキテクチャ。
+    - Fluxのメリット
+        - 単一方向のデータフローを持つことで、状態の変化が予測しやすくなる
+        - コンポーネントの再利用性が高まる
+        - テスト容易性
