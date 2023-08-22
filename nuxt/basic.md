@@ -199,16 +199,21 @@ export const useCounter = () => {
     count,
     increment,
     decrement
-  }
+  } 
 }
+
+export default defineNuxtConfig({
+  return {
+    provide: {
+      counter: useCounter()
+    }
+  }
+})
 ```
 
 ```vue
 <script setup>
-// composablesディレクトリを使う場合、Auto importなので、useを使用するだけでOK
-import { useCounter } from '~/composables/useCounter'
-
-const { count, increment, decrement } = useCounter()
+const { $counter } = useNuxtApp()
 </script>
 ```
 

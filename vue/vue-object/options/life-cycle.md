@@ -1,4 +1,15 @@
-## ライフサイクルフック
+# ライフサイクル
+- [ライフサイクルの図（公式）](https://vuejs.org/guide/essentials/lifecycle.html#lifecycle-diagram)
+
+## ライフサイクルフックの使いどころ
+- Authrication
+  - ログインしていないユーザーがアクセスできないページにアクセスしたときに、ログインページにリダイレクトする
+- API Calls
+  - ページを表示する前に、APIを呼び出してデータを取得する
+- Creating or Removing Event Listeners
+  - ページを表示する前に、イベントリスナーを登録する
+
+# ライフサイクルフック
 - Vueインスタンスのライフサイクルに沿って呼び出される関数
 - 流れ
   1. Vueインスタンスの生成
